@@ -21,11 +21,28 @@ var colorMap = {
   "asbestos": ["#7f8c8d", "rgb(127, 140, 141)"]
 };
 
+var colorNames = Object.keys(colorMap);
+var cols = 5;
+var rows = Math.ceil(colorNames.length / cols);
+
 function colorInputClicked(event) {
   console.log(event.target.id);
 }
 
 window.onload = function() {
+  var colorGrid = document.getElementById("color-grid");
+  for(var i = 1 ; i <= rows ; i++) {
+    for(var j = 1 ; j <= cols ; j++) {
+      colorGrid.innerHTML += "<a class='color-input col" +
+      j +
+      " row" +
+      i +
+      "' href='#'' id='" +
+      colorNames[(i - 1) * cols + j - 1] +
+      "'></a>"
+    }
+  }
+
   var colorsInput = document.getElementsByClassName("color-input");
   for(var i = 0 ; i < colorsInput.length ; i++) {
     colorsInput[i].onclick = colorInputClicked;
