@@ -31,39 +31,3 @@ body {
   height: 60px;
   position: absolute;
 }
-
-.row1 {
-  top: 0px;
-}
-
-.row2 {
-  top: 60px;
-}
-
-.row3 {
-  top: 120px;
-}
-
-.row4 {
-  top: 180px;
-}
-
-.col1 {
-  left: 0px;
-}
-
-.col2 {
-  left: 60px;
-}
-
-.col3 {
-  left: 120px;
-}
-
-.col4 {
-  left: 180px;
-}
-
-.col5 {
-  left: 240px;
-}

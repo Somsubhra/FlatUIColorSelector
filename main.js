@@ -25,6 +25,8 @@ var colorNames = Object.keys(colorMap);
 var cols = 5;
 var rows = Math.ceil(colorNames.length / cols);
 var currentColor;
+var cellWidth = 60;
+var cellHeight = 60;
 
 function getColorFormatIndex() {
   var format = document.getElementById("color-format-selector").value;
@@ -55,19 +57,21 @@ window.onload = function() {
   var colorGrid = document.getElementById("color-grid");
   for(var i = 1 ; i <= rows ; i++) {
     for(var j = 1 ; j <= cols ; j++) {
-      colorGrid.innerHTML += "<a class='color-input col" +
-      j +
-      " row" +
-      i +
-      "' href='#'' id='" +
-      colorNames[(i - 1) * cols + j - 1] +
-      "'></a>"
+      var colorName = colorNames[(i - 1) * cols + j - 1]
+      colorGrid.innerHTML += "<a class='color-input' href='#'' id='" +
+      colorName +
+      "' style='top: " +
+      (i - 1) * cellHeight +
+      "px; left: " +
+      (j - 1) * cellWidth +
+      "px; background-color: " +
+      colorMap[colorName][0] +
+      ";'></a>";
     }
   }
   var colorsInput = document.getElementsByClassName("color-input");
   for(var i = 0 ; i < colorsInput.length ; i++) {
     colorsInput[i].onclick = colorInputClicked;
-    colorsInput[i].style.backgroundColor = colorMap[colorsInput[i].id][0];
   }
   document.getElementById("color-format-selector").onchange = setColorOutput;
 }
