@@ -40,6 +40,9 @@ function getColorFormatIndex() {
 }
 
 function setColorOutput() {
+  if(!currentColor) {
+    return;
+  }
   var index = getColorFormatIndex();
   var colorOutput = document.getElementById("color-output");
   colorOutput.value = colorMap[currentColor][index];
