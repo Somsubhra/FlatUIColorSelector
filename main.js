@@ -76,7 +76,8 @@ window.onload = function() {
       cellWidth +
       "px; height: " +
       cellHeight +
-      "px'></a>";
+      "px'>" +
+      colorName + "</a>";
     }
   }
   var colorsInput = document.getElementsByClassName("color-input");

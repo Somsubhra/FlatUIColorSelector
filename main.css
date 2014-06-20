@@ -22,4 +22,8 @@
 
 .color-input {
   position: absolute;
+  font-family: sans-serif;
+  font-size: 10px;
+  color: #ffffff;
+  text-decoration: none;
 }
