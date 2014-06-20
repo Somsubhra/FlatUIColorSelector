@@ -24,8 +24,9 @@ var colorMap = {
 var colorNames = Object.keys(colorMap);
 var cols = 5;
 var rows = Math.ceil(colorNames.length / cols);
+var currentColor;
 
-function colorInputClicked(event) {
+function getColorFormatIndex() {
   var format = document.getElementById("color-format-selector").value;
   var index = -1
   if(format == 'hex') {
@@ -33,12 +34,25 @@ function colorInputClicked(event) {
   } else if(format == 'rgb') {
     index = 1;
   }
-  console.log(event.target.id);
+  return index;
+}
+
+function setColorOutput() {
+  var index = getColorFormatIndex();
   var colorOutput = document.getElementById("color-output");
-  colorOutput.value = colorMap[event.target.id][index];
+  colorOutput.value = colorMap[currentColor][index];
   colorOutput.focus();
   colorOutput.select();
   document.execCommand("Copy");
+}
+
+function colorInputClicked(event) {
+  currentColor = event.target.id;
+  setColorOutput();
+}
+
+function colorFormatChanged() {
+  setColorOutput();
 }
 
 window.onload = function() {
@@ -59,4 +73,5 @@ window.onload = function() {
     colorsInput[i].onclick = colorInputClicked;
     colorsInput[i].style.backgroundColor = colorMap[colorsInput[i].id][0];
   }
+  document.getElementById("color-format-selector").onchange = colorFormatChanged;
 }
