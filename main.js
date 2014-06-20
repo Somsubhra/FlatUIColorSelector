@@ -54,7 +54,10 @@ function colorInputClicked(event) {
 }
 
 window.onload = function() {
+  document.body.style.width = cellWidth * cols;
   var colorGrid = document.getElementById("color-grid");
+  colorGrid.style.width = cellWidth * cols;
+  colorGrid.style.height = cellHeight * rows;
   for(var i = 1 ; i <= rows ; i++) {
     for(var j = 1 ; j <= cols ; j++) {
       var colorName = colorNames[(i - 1) * cols + j - 1]
