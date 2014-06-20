@@ -26,7 +26,19 @@ var cols = 5;
 var rows = Math.ceil(colorNames.length / cols);
 
 function colorInputClicked(event) {
+  var format = document.getElementById("color-format-selector").value;
+  var index = -1
+  if(format == 'hex') {
+    index = 0;
+  } else if(format == 'rgb') {
+    index = 1;
+  }
   console.log(event.target.id);
+  var colorOutput = document.getElementById("color-output");
+  colorOutput.value = colorMap[event.target.id][index];
+  colorOutput.focus();
+  colorOutput.select();
+  document.execCommand("Copy");
 }
 
 window.onload = function() {
@@ -42,7 +54,6 @@ window.onload = function() {
       "'></a>"
     }
   }
-
   var colorsInput = document.getElementsByClassName("color-input");
   for(var i = 0 ; i < colorsInput.length ; i++) {
     colorsInput[i].onclick = colorInputClicked;
