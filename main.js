@@ -51,10 +51,6 @@ function colorInputClicked(event) {
   setColorOutput();
 }
 
-function colorFormatChanged() {
-  setColorOutput();
-}
-
 window.onload = function() {
   var colorGrid = document.getElementById("color-grid");
   for(var i = 1 ; i <= rows ; i++) {
@@ -73,5 +69,5 @@ window.onload = function() {
     colorsInput[i].onclick = colorInputClicked;
     colorsInput[i].style.backgroundColor = colorMap[colorsInput[i].id][0];
   }
-  document.getElementById("color-format-selector").onchange = colorFormatChanged;
+  document.getElementById("color-format-selector").onchange = setColorOutput;
 }
