@@ -25,7 +25,7 @@ var colorNames = Object.keys(colorMap);
 var cols = 5;
 var rows = Math.ceil(colorNames.length / cols);
 var currentColor;
-var cellWidth = 60;
+var cellWidth = 100;
 var cellHeight = 60;
 
 function getColorFormatIndex() {
@@ -72,7 +72,11 @@ window.onload = function() {
       (j - 1) * cellWidth +
       "px; background-color: " +
       colorMap[colorName][0] +
-      ";'></a>";
+      "; width: " +
+      cellWidth +
+      "px; height: " +
+      cellHeight +
+      "px'></a>";
     }
   }
   var colorsInput = document.getElementsByClassName("color-input");
