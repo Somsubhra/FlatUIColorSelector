@@ -1,10 +1,18 @@
 <html>
   <head>
     <title>Flat UI Color Selector</title>
+    <link rel="stylesheet" href="main.css">
   </head>
   <script type="text/javascript" src="main.js"></script>
   <body>
-    <input type="text" name="color-out" id="color-out" value="#ffffff">
-    <button id="btn">Copy</button>
+    <header>
+      <select name="color-format" id="color-format-selector">
+        <option value="hex">Hex</option>
+        <option value="rgb">RGB</option>
+      </select>
+      <input type="text" id="color-output">
+    </header>
+    <div id="color-grid">
+    </div>
   </body>
 </html>

@@ -1,0 +1,27 @@
+body {
+  width: 300px;
+}
+
+#color-output {
+  padding: 4px;
+  border: 1px solid #aaaaaa;
+  outline: 0;
+  width: 150px;
+  color: #777777;
+}
+
+#color-format-selector {
+  padding: 3px;
+  border: 1px solid #aaaaaa;
+  outline: 0;
+  background-color: #ffffff;
+  color: #777777;
+}
+
+#color-grid {
+  margin-top: 10px;
+  width: 300px;
+  height: 240px;
+  background-color: #aaaaaa;
+}
+
