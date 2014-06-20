@@ -29,7 +29,7 @@ var cellWidth = 100;
 var cellHeight = 60;
 
 function getColorFormatIndex() {
-  var format = document.getElementById("color-format-selector").value;
+  var format = $("#color-format-selector").val();
   var index = -1
   if(format == 'hex') {
     index = 0;
@@ -46,11 +46,13 @@ function setColorOutput() {
     return;
   }
   var index = getColorFormatIndex();
-  var colorOutput = document.getElementById("color-output");
-  colorOutput.value = colorMap[currentColor][index];
+  var colorOutput = $("#color-output");
+  colorOutput.val(colorMap[currentColor][index]);
   colorOutput.focus();
   colorOutput.select();
   document.execCommand("Copy");
+  $("#message").fadeIn();
+  $("#message").fadeOut();
 }
 
 function colorInputClicked(event) {
@@ -58,15 +60,16 @@ function colorInputClicked(event) {
   setColorOutput();
 }
 
-window.onload = function() {
-  document.body.style.width = cellWidth * cols;
-  var colorGrid = document.getElementById("color-grid");
-  colorGrid.style.width = cellWidth * cols;
-  colorGrid.style.height = cellHeight * rows;
+$(function() {
+  $("#message").hide();
+  $("body").css("width", cellWidth * cols);
+  var colorGrid = $("#color-grid");
+  colorGrid.css("width", cellWidth * cols);
+  colorGrid.css("height", cellHeight * rows);
   for(var i = 1 ; i <= rows ; i++) {
     for(var j = 1 ; j <= cols ; j++) {
       var colorName = colorNames[(i - 1) * cols + j - 1]
-      colorGrid.innerHTML += "<a class='color-input' href='#'' id='" +
+      var html = "<a class='color-input' href='#'' id='" +
       colorName +
       "' style='top: " +
       (i - 1) * cellHeight +
@@ -79,12 +82,11 @@ window.onload = function() {
       "px; height: " +
       cellHeight +
       "px'>" +
-      colorName + "</a>";
+      colorName +
+      "</a>";
+      colorGrid.append(html);
     }
   }
-  var colorsInput = document.getElementsByClassName("color-input");
-  for(var i = 0 ; i < colorsInput.length ; i++) {
-    colorsInput[i].onclick = colorInputClicked;
-  }
-  document.getElementById("color-format-selector").onchange = setColorOutput;
-}
+  $(".color-input").click(colorInputClicked);
+  $("#color-format-selector").change(setColorOutput);
+});
