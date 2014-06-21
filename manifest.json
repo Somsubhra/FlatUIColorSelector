@@ -17,5 +17,7 @@
     "default_popup": "default.html",
 
     "default_title": "Flat UI Colors Selector"
-  }
+  },
+
+  "author": "Somsubhra Bairi"
 }
