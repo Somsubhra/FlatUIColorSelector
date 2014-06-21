@@ -31,9 +31,23 @@
 #brand {
   font-size: 12px;
   font-family: sans-serif;
-  font-weight: bold;
-  color: #e74c3c;
   margin-left: 100px;
+}
+
+#flat-brand {
+  color: #3498db;
+}
+
+#ui-brand {
+  color: #f39c12;
+}
+
+#colors-brand {
+  color: #2ecc71;
+}
+
+#selector-brand {
+  color: #e74c3c;
 }
 
 #message {
